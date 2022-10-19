@@ -1,0 +1,37 @@
+https://www.digitalocean.com/community/tutorials/api-authentication-with-json-web-tokensjwt-and-passport
+
+Questions:  Why am I using Local strategy? Do jwt strategies require local strategies? That seems wrong.
+    - How do I set the header? The proper way to use JWT is to set it as the "Authorization" header with "bearer the_token"
+        - I can't conditionally set a app.use() can I?
+        - Would I add a function to app.use() that sees if the user is authenticated? Wouldn't that mean I'd have to set a global variable?
+
+
+Goal: get the POST login request to actually set the Authorization header so the user is logged in for "some duration" of time.
+
+
+
+This version works ONLY with POSTMAN.
+
+POST request
+    - url: localhost:3000/signup
+    - Body (select Body in the tabs)
+    - x-www-form-urlencoded
+    - key values:  key: email, value: some@emailaddress.com, key: password, value: password,
+    hit send.
+
+POsT request:
+    - url: localhost:3000/login
+    - Body
+    - x-www-form-urlencoded
+    - email: (same as /signup)
+    - password: (same as /signup)
+
+    /login outputs a token.
+
+    use the token on secured routes.
+
+GET localhost:3000/user/profile
+Params
+pass in token:
+
+secret_token my_token
