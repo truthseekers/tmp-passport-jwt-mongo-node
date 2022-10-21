@@ -35,3 +35,5 @@ Params
 pass in token:
 
 secret_token my_token
+
+git@github.com:truthseekers/tmp-passport-jwt-mongo-node.git
